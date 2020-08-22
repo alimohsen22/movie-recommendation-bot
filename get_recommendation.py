@@ -19,16 +19,6 @@ def get_recommendations(title):
     # Return the top 10 most similar movies
 #    return movie.df2['title'].iloc[movie_indices]
     x= movie.df2['title'].iloc[movie_indices]
-    return 'i recommend : ('+') or ('.join(x)
-#thefilm=[]
-#args=['The','dark','knight','rises']
-#for i in args:
-#      thefilm.append(i.capitalize())
-#print(thefilm)
-#movie = ' '.join(thefilm) 
-#print(movie)
-#import get_recommendation as get
-#films=get.get_recommendations(movie.capitalize())
-#return ((str(films.values)))
-#
-print(get_recommendations('Avatar'))
+    thefilm='i recommend : ('+') or ('.join(x)
+    return (thefilm+')')
+
