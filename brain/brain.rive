@@ -26,20 +26,40 @@
 
 
 > topic recommend
-+ *(recommend)*                                  
+
++ *                                  
+- i cannot understand you 
+
++ *(recommend|watch)*                                  
 - please tell me a movie you like so i can recommend you a similar one {topic=film} 
+
 < topic
 
 > topic film
+
 + *
--  <call>tempCall <star></call> 
+-  <call>tempCall <star></call>  do you want another recommendation? {topic=choose} 
+
 < topic
 
 
- 
+> topic choose
+
++ yes
+- ok please tell me another movie {topic=film}
+
++ no
+- ok <get name>,i was happy to serve you {topic=thankyou}
+
+< topic
+
+
+> topic thankyou
+
 + thank you  
 - you are welcome <get name>
 
+< topic
 
 
 > object tempCall python
@@ -52,13 +72,3 @@ films=get.get_recommendations(movie)
 return films
   
 < object
-
-
-
-
-
-
-
-
-
-
