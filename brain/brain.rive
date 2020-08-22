@@ -1,1 +1,64 @@
+! version = 2.0
+
+!var name =  movie recommendation system 
+!sub movie = film
+
++ (hello bot|hey|hi|hello|hey bot)
+- Hello....excuse me what is your name ? {topic=name}
+
+
+> topic name
++ *
+- <set name=<formal>>Nice to meet you <get name>, how can i help you . {topic=recommend}
+< topic
+
+
+
++ *
+- i can't understand you
+
+
++ (what is my name|who am i)
+- You're <get name>, right?
+
++ (who are you|what is your name) 
+- i am <bot name>
+
+
+> topic recommend
++ *(recommend)*                                  
+- please tell me a movie you like so i can recommend you a similar one {topic=film} 
+< topic
+
+> topic film
++ *
+-  <call>tempCall <star></call> 
+< topic
+
+
+ 
++ thank you  
+- you are welcome <get name>
+
+
+
+> object tempCall python
+thefilm=[]
+for i in args:
+      thefilm.append(i.capitalize())
+movie = ' '.join(thefilm) 
+import get_recommendation as get
+films=get.get_recommendations(movie)
+return films
+  
+< object
+
+
+
+
+
+
+
+
+
 
